@@ -1,0 +1,117 @@
+<div class="login-section" style="background-image: url('dist/img/bg.png');">
+    <div class="container">
+        <div class="login-block">
+            <form name="LoginForm">
+                <div class="row-table">
+                    <div class="col-cell">
+                        <div class="form-block">
+                            <div class="logo-block text-center">
+                                <label class="control-label">Login Form</label></div>
+                                <div class="whitebg-section">
+                                    <div class="row">
+                                        <div class="form-group clearfix">
+                                            <label class="control-label col-md-12">Email</label>
+
+                                            <div class="col-sm-12">
+                                                <input type="email" class="form-control" name="email" placeholder="email@email.com" ng-pattern="/^[a-z]+[a-z0-9._]+@[a-z]+\.[a-z.]{2,5}$/" ng-model="myFromLogin.email"required>
+                                                <span style="color:red;" ng-show="LoginForm.email.$dirty && LoginForm.email.$invalid"   >
+                                             <span ng-show="LoginForm.email.$error.required">Email is required.</span>
+                                             <span ng-show="LoginForm.email.$error.pattern">Only Valid email !</span>
+                                            </div>
+                                        </div>
+                                        <div class="form-group clearfix">
+                                            <label class="control-label col-md-12">Password</label>
+                                            <div class="col-sm-12">
+                                                <input type="password" class="form-control" ng-model="myFromLogin.password" name="password" placeholder="**********"  required>
+                                                <span style="color:red;" ng-show="LoginForm.password.$dirty && LoginForm.password.$invalid">
+                                             <span ng-show="LoginForm.password.$error.required">Password is required.</span>
+                                             <span ng-show="LoginForm.password.$error.pattern">Password Should consist of one symbole atleast one Cappital Letter and Number.</span>
+                                            </div>
+                                        </div>
+                                        <div class="form-group m-t-20 button-block clearfix">
+                                            <div class="col-sm-12">
+                                             <center>
+                                                    <a href="#forgetpassword" style="float:right; padding-right:30px" >Forgot Password</a><br>
+                                                    </center>
+                                                <button type="button" ng-disabled="!(myFromLogin.email && myFromLogin.password)" ng-click="login()" class="btn btn-block btn-blue" >Login</button>
+
+                                                <button type="button" ui-sref="signup" class="btn btn-block btn-blue">SignUp</button>
+                                                 
+
+                                            </div>
+                                            <p></p>
+                                            <span>
+
+                                            <div class="form-group m-t-20 button-block clearfix">
+                                            <div class="col-sm-12">
+                                                <img src="./dist/img/fb.png" height="50px" ng-click="fbLogin()" style="cursor: pointer; margin-left: 20px;">
+                                                <img src="./dist/img/fblogout.png" height="50px" ng-click="logout()" style="cursor: pointer; margin-left: 20px;">
+                                                <img src="./dist/img/gmail.png" height="50px" ng-click="onGoogleLogin()" style="cursor: pointer; margin-left: 20px;">
+                                            </div>
+                                            
+                                            </span>
+
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+<!-- <div class="login-section" style="background-image: url('dist/img/bg.png');">
+    <div class="container">
+        <div class="login-block">
+            <form name="LoginForm">
+                <div class="row-table">
+                    <div class="col-cell">
+                        <div class="form-block">
+                            <div class="logo-block text-center">
+                                <label class="control-label">Login Form</label></div>
+                                <div class="whitebg-section">
+                                    <div class="row">
+                                        <div class="form-group clearfix">
+                                            <label class="control-label col-md-12">UserName</label>
+
+                                            <div class="col-sm-12">
+                                                <input type="text" class="form-control" name="usernName" placeholder="userName" ng-pattern="" ng-model="myFromLogin.userName"required>
+                                                <span style="color:red;" ng-show="LoginForm.userName.$dirty && LoginForm.userName.$invalid"   >
+                                             <span ng-show="LoginForm.userName.$error.required">User Name is required.</span>
+                                             <span ng-show="LoginForm.userName.$error.pattern">Only Valid Name !</span>
+                                            </div>
+                                        </div>
+                                        <div class="form-group clearfix">
+                                            <label class="control-label col-md-12">Password</label>
+                                            <div class="col-sm-12">
+                                                <input type="password" class="form-control" ng-model="myFromLogin.password" name="password" placeholder="**********"  required>
+                                                <span style="color:red;" ng-show="LoginForm.password.$dirty && LoginForm.password.$invalid">
+                                             <span ng-show="LoginForm.password.$error.required">Password is required.</span>
+                                             <span ng-show="LoginForm.password.$error.pattern">Password Should consist of one symbole atleast one Cappital Letter and Number.</span>
+                                            </div>
+                                        </div>
+                                        <div class="form-group m-t-20 button-block clearfix">
+                                            <div class="col-sm-12">
+                                                <button type="button" ng-disabled="!(myFromLogin.userName && myFromLogin.password)" ng-click="login()" class="btn btn-block btn-blue" >Login</button>
+                                                <button type="button" ui-sref="signup" class="btn btn-block btn-blue">SignUp</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+ -->

@@ -1,0 +1,125 @@
+/*---------------------Controller---------------------------*/ 
+
+//////////Facebook Login////////////
+	$scope.fbLogin = function(){
+
+		FB.getLoginStatus(function(response) {
+		    if (response.status === 'connected') {
+		    	console.log('Logged in.');
+		    }else {
+			    FB.login(function(response) 
+			    {
+				    if (response.authResponse){
+				     console.log('Welcome!  Fetching your information.... ');
+				     FB.api('/me', function(response) {
+				     	$rootScope.logo = response.name;
+				       console.log('Good to see you, ' + response.name + '.');  
+				     });
+				    }else {
+			            //user hit cancel button
+			        	console.log('User cancelled login or did not fully authorize.');     
+			    	}
+			    })
+		    }
+		});
+	};
+
+
+	$scope.logout = function () {
+
+		FB.getLoginStatus(function(response) {
+			//var accessToken = response.authResponse.accessToken;
+			if (response.status === 'connected') {
+				FB.logout(function(response) {
+		 			console.log('Logout -->'+ JSON.stringify(response))
+				});    
+			}else{
+				console.log('Already Logged out');
+			} 
+		});
+	}
+
+
+    
+
+
+
+
+//////////////Google Plus//////////////////
+    
+    $scope.onGoogleLogin = function(){
+        //alert('Welcome')
+        var params = {
+            'clientid': '255180665521-8p090c0po936jdfh0ashdjcojh6uq36u.apps.googleusercontent.com',
+            'cookiepolicy': 'single_host_origin',
+            'callback': 'onLoadFunction',
+            'approvalprompt': 'force',
+            'scope': 'https://www.googleapis.com/auth/plus.login https://www.googleapis.com/auth/plus.profile.emails.read'
+        };
+        gapi.auth.signIn(params);
+    }
+    
+    function onLoadFunction() {
+        gapi.client.setApiKey('AIzaSyBTr8RdyvyqelKVUbHBYUectqb5nVx3120');
+        gapi.client.load('plus', 'v1', function(){
+               gapi.client.load('plus','v1', function(){ 
+                var request = gapi.client.plus.people.get({'userId' : 'me'});
+                request.execute(function(response) {
+                    console.log('ID: ' + response.id);
+                    console.log('Display Name: ' + response.displayName);
+                    console.log('Image URL: ' + response.image.url);
+                    console.log('Profile URL: ' + response.url);
+                });
+            });
+        });
+    }
+    
+
+
+/*------------------------- HTML-------------------------------*/
+ <img src="fb.png" height="50px" ng-click="fbLogin()" style="cursor: pointer; margin-left: 20px;">
+<img src="gp.png" height="50px" ng-click="onGoogleLogin()" style="cursor: pointer; margin-left: 20px;">
+
+
+
+/*----------------------------INDEX HTML--------------------------*/
+
+  <!-- FB Integration-->
+   <script>
+      window.fbAsyncInit = function() {
+        FB.init({
+          appId      : '1636484483326978',
+          xfbml      : true,
+          version    : 'v2.8'
+        });
+        FB.AppEvents.logPageView();
+      };
+
+      (function(d, s, id){
+         var js, fjs = d.getElementsByTagName(s)[0];
+         if (d.getElementById(id)) {return;}
+         js = d.createElement(s); js.id = id;
+         js.src = "//connect.facebook.net/en_US/sdk.js";
+         fjs.parentNode.insertBefore(js, fjs);
+       }(document, 'script', 'facebook-jssdk'));
+    </script>
+
+    <!-- Google Plus Integration-->
+    <script>
+        (function(){
+            var p = document.createElement('script');
+            p.type = 'text/javascript';
+            p.async = true;
+            p.src = 'https://apis.google.com/js/client.js?onload = onLoadFunction';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(p, s);
+        })();
+    </script>
+     <script type = "text/javascript" >
+        function preventBack() { window.history.forward(1); }
+        setTimeout("preventBack()", 0);
+        window.onunload = function () { null };
+</script>
+
+/* ------------------------------META DATA---------------------------*/
+<meta name="google-signin-client_id" content="255180665521-8p090c0po936jdfh0ashdjcojh6uq36u.apps.googleusercontent.com">

@@ -1,0 +1,279 @@
+<div class="login-section" style="background-image: url('dist/img/bg.png');">
+  <div class="container">
+    <div class="login-block">
+      <form name="SignupForm">
+        <div class="row-table">
+          <div class="col-cell">
+            <div class="form-block">
+              <div class="logo-block text-center">
+                <div class="logo-heading"><strong>SignUp</strong></div>
+                <div class="logo-heading">Fill Your Details</div>
+              </div>
+              <div class="whitebg-section">
+                <div class="row">
+                  <div class="form-group clearfix">
+                    <label class="control-label col-md-12">First Name</label>
+                    <div class="col-sm-12">
+                      <input type="text" class="form-control" ng-model="si.firstName" name="firstName" placeholder="First Name" ng-pattern="/^[a-zA-Z\s]*$/" required>
+                      <span style="color:red;" ng-show="SignupForm.firstName.$dirty && SignupForm.firstName.$invalid">
+                       <span ng-show="SignupForm.firstName.$error.required">First name is required.</span>
+                       <span ng-show="SignupForm.firstName.$error.pattern">Please Enter Alphabets.</span>
+                     </div>
+                   </div>
+                   <div class="form-group clearfix">
+                    <label class="control-label col-md-12">Last Name</label>
+                    <div class="col-sm-12">
+                      <input type="text" class="form-control" ng-model="si.lastName" name="lastName" placeholder="Last Name" ng-pattern="/^[a-zA-Z\s]*$/" required>
+                      <span style="color:red;" ng-show="SignupForm.lastName.$dirty && SignupForm.lastName.$invalid">
+                       <span ng-show="SignupForm.lastName.$error.required">Last name is required.</span>
+                       <span ng-show="SignupForm.lastName.$error.pattern">Please Enter Alphabets.</span>
+                     </div>
+                   </div>
+                   <div class="col-sm-12">
+                   <div class="form-group clearfix">
+                    <label class="control-label col-md-12">Email</label>
+                    <input type="email" class="form-control" name="email" placeholder="email@email.com" ng-pattern="/^[a-z]+[a-z0-9._]+@[a-z]+\.[a-z.]{2,5}$/" ng-model="si.email" required>
+                    <span style="color:red;" ng-show="SignupForm.email.$dirty && SignupForm.email.$invalid" >
+                     <span ng-show="SignupForm.email.$error.required">Email is required.</span>
+                     <span ng-show="SignupForm.email.$error.pattern">Only Valid email !</span>
+                   </div>
+                 </div>
+                 <div class="form-group clearfix">
+                  <label class="control-label col-md-12">Password</label>
+                  <div class="col-sm-12">
+                    <input type="password" class="form-control" ng-model="si.password" name="password" placeholder="Password" required>
+                    <span style="color:red;" ng-show="SignupForm.password.$dirty && SignupForm.password.$invalid">
+                     <span ng-show="SignupForm.password.$error.required">Password is required.</span>
+                     <span ng-show="SignupForm.password.$error.pattern">Password Should consist of one symbole atleast one Cappital Letter and Number.</span>
+                   </div>
+                 </div>
+                 <div class="form-group clearfix">
+                  <label class="control-label col-md-12">Confirm Password</label>
+                  <div class="col-sm-12">
+                    <input type="password" class="form-control" ng-model="ci.cpassword" name="cpassword"  placeholder="Confirm Password" required>
+                    <span style="color:red;" ng-show="SignupForm.password.$dirty && SignupForm.password.$invalid">
+                     <span ng-show="SignupForm.password.$error.required">Password is required.</span>
+                     <span ng-show="SignupForm.password.$error.pattern">Password Should consist of one symbole atleast one Cappital Letter and Number.</span>
+                      <span ng-if="ci.cpassword!=si.password && ci.cpassword != null">Password not Matched.</span>
+                   </div>
+                 </div>
+                 <div class="form-group clearfix">
+                  <label class="control-label col-md-12">Age</label>
+                  <div class="col-sm-12">
+                    <input type="text" class="form-control" ng-model="si.age" name="age" placeholder="Age" ng-pattern="/^[0-9]{1,7}$/" maxlength="3" required>
+                    <span style="color:red;" ng-show="SignupForm.age.$dirty && SignupForm.age.$invalid">
+                     <span ng-show="SignupForm.age.$error.required">Age is required.</span>
+                     <span ng-show="SignupForm.age.$error.pattern">Numeric Values Are Accepted.</span>
+                   </div>
+                 </div>
+                 <div class="form-group clearfix">
+                  <label class="control-label col-md-12">DOB</label>
+                  <div class="col-sm-12">
+                    <input type="date" class="form-control" ng-click="date()" max="{{dob.toISOString().slice(0,10)}}" ng-model="si.date" name="date" placeholder="DOB">
+                  </div>
+                </div>
+                <div class="form-group clearfix">
+                 <label class="control-label col-md-12">Company</label>
+                 <div class="col-sm-12">
+                   <select class="form-control" ng-model="si.company">
+                     <option value="">Select Company</option>
+                     <option value="Mobiloitte">Mobiloitte</option>
+                     <option value="TCS">TCS</option>
+                   </select>
+                 </div>
+               </div>
+               <div class="form-group clearfix">
+                <label class="control-label col-md-12">Address</label>
+                <div class="col-sm-12">
+                  <textarea class="form-control" name="address" ng-model="si.address" placeholder="Address" required></textarea>
+                  <span style="color:red;" ng-show="SignupForm.address.$dirty && SignupForm.address.$invalid">
+                   <span ng-show="SignupForm.address.$error.required">Address is required.</span>
+                 </div>
+               </div>
+               <div class="form-group clearfix">
+                 <label class="control-label col-md-12">Gender</label>
+                 <div class="col-sm-12">
+                   <div class="radio-block">
+                     <label class="radio-label">
+                       <input type="radio" ng-model="si.gender" value="Male" name="radio" checked>Male</label>
+                       <label class="radio-label" >
+                         <input type="radio" name="radio" ng-model="si.gender" value="Female">Female</label>
+                       </div>
+                     </div>
+                   </div>
+                   <div class="form-group clearfix">
+                    <label class="control-label col-md-12">Mobile</label>
+                    <div class="col-sm-12">
+                      <input type="text" ng-model="si.mobile" ng-pattern="/^[0-9]{1,12}$/" class="form-control" name="mobile" placeholder="Mobile Number" required>
+                      <span style="color:red;" ng-show="SignupForm.mobile.$dirty && SignupForm.mobile.$invalid">
+                       <span ng-show="SignupForm.mobile.$error.required">Mobile is required.</span>
+                       <span ng-show="SignupForm.mobile.$error.pattern">Enter 12 Digit Number in Numeric Values.</span>
+                     </div>
+                   </div>
+                   <div class="form-group clearfix">
+                     <label class="control-label col-md-12">Education</label>
+                     <div class="col-sm-12">
+                       <select class="form-control" ng-model="si.education">
+                         <option value="">Select Education</option>
+                         <option value="MCA">MCA</option>
+                         <option value="B.Tech">B.Tech</option>
+                       </select>
+                     </div>
+                   </div>
+                   <div class="form-group m-t-20 button-block clearfix">
+                    <div class="col-sm-12">
+                      <button type="button" ng-click="signup()" ng-disabled="!(si.email && si.password && ci.cpassword && si.firstName && si.lastName && si.age && si.date && si.address && si.company && si.gender && si.mobile && si.education)" class="btn btn-block btn-blue">Signup</button>
+                  
+
+                     <!--  <div>
+                        <input type="text" name="" ng-model="user.name"/>
+                        <ul>
+                          <li ng-repeat="list in listView|filter:user.name">{{list}}</li>
+                        </ul>
+                      </div> -->
+
+
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+</div>
+
+
+
+<!-- <div class="login-section" style="background-image: url('dist/img/bg.png');">
+  <div class="container">
+    <div class="login-block">
+      <form name="SignupForm">
+        <div class="row-table">
+          <div class="col-cell">
+            <div class="form-block">
+              <div class="logo-block text-center">
+                <div class="logo-heading"><strong>SignUp</strong></div>
+                <div class="logo-heading">Fill Your Details</div>
+              </div>
+              <div class="whitebg-section">
+                <div class="row">
+                  <div class="form-group clearfix">
+                    <label class="control-label col-md-12">First Name</label>
+                    <div class="col-sm-12">
+                      <input type="text" class="form-control" ng-model="si.firstName" name="firstName" placeholder="First Name" ng-pattern="/^[a-zA-Z\s]*$/" required>
+                      <span style="color:red;" ng-show="SignupForm.firstName.$dirty && SignupForm.firstName.$invalid">
+                       <span ng-show="SignupForm.firstName.$error.required">First name is required.</span>
+                       <span ng-show="SignupForm.firstName.$error.pattern">Please Enter Alphabets.</span>
+                     </div>
+                   </div>
+                   <div class="form-group clearfix">
+                    <label class="control-label col-md-12">Last Name</label>
+                    <div class="col-sm-12">
+                      <input type="text" class="form-control" ng-model="si.lastName" name="lastName" placeholder="Last Name" ng-pattern="/^[a-zA-Z\s]*$/" required>
+                      <span style="color:red;" ng-show="SignupForm.lastName.$dirty && SignupForm.lastName.$invalid">
+                       <span ng-show="SignupForm.lastName.$error.required">Last name is required.</span>
+                       <span ng-show="SignupForm.lastName.$error.pattern">Please Enter Alphabets.</span>
+                     </div>
+                   </div>
+                   <div class="col-sm-12">
+                     <div class="form-group clearfix">
+                      <label class="control-label col-md-12">Email</label>
+                      <input type="email" class="form-control" name="email" placeholder="email@email.com" ng-pattern="/^[a-z]+[a-z0-9._]+@[a-z]+\.[a-z.]{2,5}$/" ng-model="si.email" required>
+                      <span style="color:red;" ng-show="SignupForm.email.$dirty && SignupForm.email.$invalid" >
+                       <span ng-show="SignupForm.email.$error.required">Email is required.</span>
+                       <span ng-show="SignupForm.email.$error.pattern">Only Valid email !</span>
+                     </div>
+                   </div>
+                   <div class="form-group clearfix">
+                    <label class="control-label col-md-12">Password</label>
+                    <div class="col-sm-12">
+                      <input type="password" class="form-control" ng-model="si.password" name="password" placeholder="Password" required>
+                      <span style="color:red;" ng-show="SignupForm.password.$dirty && SignupForm.password.$invalid">
+                       <span ng-show="SignupForm.password.$error.required">Password is required.</span>
+                       <span ng-show="SignupForm.password.$error.pattern">Password Should consist of one symbole atleast one Cappital Letter and Number.</span>
+                     </div>
+                   </div>
+                   
+                   <div class="form-group clearfix">
+                    <label class="control-label col-md-12">Age</label>
+                    <div class="col-sm-12">
+                      <input type="text" class="form-control" ng-model="si.age" name="age" placeholder="Age" ng-pattern="/^[0-9]{1,7}$/" maxlength="3" required>
+                      <span style="color:red;" ng-show="SignupForm.age.$dirty && SignupForm.age.$invalid">
+                       <span ng-show="SignupForm.age.$error.required">Age is required.</span>
+                       <span ng-show="SignupForm.age.$error.pattern">Numeric Values Are Accepted.</span>
+                     </div>
+                   </div>
+                   <div class="form-group clearfix">
+                    <label class="control-label col-md-12">DOB</label>
+                    <div class="col-sm-12">
+                      <input type="date" class="form-control" ng-model="si.date" name="date" placeholder="DOB">
+                    </div>
+                  </div>
+                  <div class="form-group clearfix">
+                   <label class="control-label col-md-12">Company</label>
+                   <div class="col-sm-12">
+                     <select class="form-control" ng-model="si.company">
+                       <option value="">Select Company</option>
+                       <option value="Mobiloitte">Mobiloitte</option>
+                       <option value="TCS">TCS</option>
+                     </select>
+                   </div>
+                 </div>
+                 <div class="form-group clearfix">
+                  <label class="control-label col-md-12">Address</label>
+                  <div class="col-sm-12">
+                    <textarea class="form-control" name="address" ng-model="si.address" placeholder="Address" required></textarea>
+                    <span style="color:red;" ng-show="SignupForm.address.$dirty && SignupForm.address.$invalid">
+                     <span ng-show="SignupForm.address.$error.required">Address is required.</span>
+                   </div>
+                 </div>
+                 <div class="form-group clearfix">
+                   <label class="control-label col-md-12">Gender</label>
+                   <div class="col-sm-12">
+                     <div class="radio-block">
+                       <label class="radio-label">
+                         <input type="radio" ng-model="si.gender" value="Male" name="radio" checked>Male</label>
+                         <label class="radio-label" >
+                           <input type="radio" name="radio" ng-model="si.gender" value="Female">Female</label>
+                         </div>
+                       </div>
+                     </div>
+                     <div class="form-group clearfix">
+                      <label class="control-label col-md-12">Mobile</label>
+                      <div class="col-sm-12">
+                        <input type="text" ng-model="si.mobile" ng-pattern="/^[0-9]{1,12}$/" class="form-control" name="mobile" placeholder="Mobile Number" required>
+                        <span style="color:red;" ng-show="SignupForm.mobile.$dirty && SignupForm.mobile.$invalid">
+                         <span ng-show="SignupForm.mobile.$error.required">Mobile is required.</span>
+                         <span ng-show="SignupForm.mobile.$error.pattern">Enter 12 Digit Number in Numeric Values.</span>
+                       </div>
+                     </div>
+                     <div class="form-group clearfix">
+                       <label class="control-label col-md-12">Education</label>
+                       <div class="col-sm-12">
+                         <select class="form-control" ng-model="si.education">
+                           <option value="">Select Education</option>
+                           <option value="MCA">MCA</option>
+                           <option value="B.Tech">B.Tech</option>
+                         </select>
+                       </div>
+                     </div>
+                     <div class="form-group m-t-20 button-block clearfix">
+                      <div class="col-sm-12">
+                        <button type="button" ng-click="signup()" ng-disabled="!(si.email && si.password && si.firstName && si.lastName && si.age && si.date && si.address && si.company && si.gender && si.mobile && si.education)" class="btn btn-block btn-blue">Signup</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+ -->

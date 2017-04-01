@@ -1,0 +1,48 @@
+<div>
+
+<!-- 	
+	<div ng-repeat="data in abc" >	
+		<span>{{$index+1}}</span>.
+		<span>{{data.user_name}}</span>
+		<span>{{data.email}}</span>
+
+
+	</div>
+ -->
+
+      <table class="table custom-table">
+                        <thead>
+                            <tr>
+                            <th>Index</th>
+                                <th>User Name</th>
+                                <th>Last Name</th>
+                                <th>Email</th>
+
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="data in abc">
+                                <td>{{$index+1}}</td>
+                                <td>{{data.firstName}}</td>
+                                <td>{{data.lastName}}</td>
+                                 <td>{{data.email}}</td>
+
+                                <td>
+                                    <a type="button" class="btn light-blue" ng-href="#editDetails/{{data.firstName}}">Edit</a>
+                                  <!--   <a type="button" class="btn light-blue" ng-click="delete(data.firstName);">Delete</a> -->
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+	<form name="myForm">
+		<button ng-click="showallusers()">show-users</button>
+	</form>
+
+
+
+
+</div>
+
+
+

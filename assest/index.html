@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>loginsingup</title>
+    <!-- Bootstrap Core CSS -->
+
+    <!--Google api data Modification -->
+   
+    <meta name="google-signin-client_id" content="255180665521-8p090c0po936jdfh0ashdjcojh6uq36u.apps.googleusercontent.com">
+
+
+    <!--   end -->
+
+
+    <link href="../dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="../dist/css/bootstrap.css" rel="stylesheet">
+    <link href="../dist/css/font-awesome.css" rel="stylesheet">
+    <link href="../dist/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="../dist/css/style.css" rel="stylesheet" type="text/css">
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+
+
+     <!-- FB Integration-->
+     <script>
+      window.fbAsyncInit = function() {
+        FB.init({
+            appId      : '1636484483326978',
+          xfbml      : true,
+          version    : 'v2.8'
+      });
+        FB.AppEvents.logPageView();
+    };
+
+    (function(d, s, id){
+       var js, fjs = d.getElementsByTagName(s)[0];
+       if (d.getElementById(id)) {return;}
+       js = d.createElement(s); js.id = id;
+       js.src = "//connect.facebook.net/en_US/sdk.js";
+       fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+</script>
+
+<!-- Google Plus Integration-->
+<script>
+    var x=function(){
+        var p = document.createElement('script');
+        p.type = 'text/javascript';
+        p.async = true;
+        p.src = 'https://apis.google.com/js/client.js?onload = onLoadFunction';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(p, s);
+    }();
+</script>
+<script type = "text/javascript" >
+    function preventBack() { window.history.forward(1); }
+    setTimeout("preventBack()", 0);
+    window.onunload = function () { null };
+</script>
+
+
+
+
+
+</head>
+<script src="../dist/lib/angular/angular.min.js"></script>
+<script src="../dist/lib/angular-ui-router/release/angular-ui-router.min.js"></script>
+<!-- jQuery -->
+<script src="../dist/js/jquery.js"></script>
+<!-- Bootstrap Core JavaScript -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.2/moment.min.js"></script>
+<script src="../dist/js/bootstrap.min.js"></script>
+<script src="../dist/js/bootstrap.js"></script>
+<script src="../dist/js/jquery.js"></script>
+<script src="../dist/js/jquery.min.js"></script>
+<!-- Morris Charts JavaScript -->
+<!-- <script src="../dist/js/plugins/morris/raphael.min.js"></script>
+    <script src="../dist/js/plugins/morris/morris.min.js"></script>
+    <script src="../dist/js/plugins/morris/morris-data.js"></script> -->
+<!-- your app's js -->
+<script src="js/app.js"></script>
+<script src="js/controllers/loginCtrl.js"></script>
+<script src="js/controllers/signupCtrl.js"></script>
+<script src="js/controllers/forgetpassword.js"></script>
+<script src="js/controllers/updatePwd.js"></script>
+<script src="js/controllers/info.js"></script>
+<script src="js/controllers/successLoginCtrl.js"></script>
+<script src="js/controllers/getuserlistsCtrl.js"></script>
+<script src="js/controllers/editDetailsCtrl.js"></script>
+<script src="js/service.js"></script>
+<script src="js/adminServices.js"></script>
+
+
+
+<body ng-app="MyApp">
+    <ui-view></ui-view>
+</body>
+
+</html>
